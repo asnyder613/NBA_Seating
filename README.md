@@ -1,5 +1,5 @@
-# NBA_Seating
-Group capstone project for the NBA Future Analytics Stars internship. 
+# Predicting Basketball Ticket Prices
+A group capstone project for the NBA Future Analytics Stars internship completed by Abigail Snyder and Darin Materman. 
 
 ## Project Focus: Business Analytics (A)
 Pricing NBA Arena Seats Data Sources: Secondary Market Ticket Sales
