@@ -75,3 +75,31 @@ We dropped the date/time variables, as well as any duplicate variables, while ad
 ## Model Performance and Results
 
 The section name, level, and group variables have the greatest impact on ticket price. 
+
+Our model ended up with an out of bag score of .936, meaning that it handles new data pretty effectively, and thus can be taken into consideration for further usage with new data. 
+The model's mean squared error was .051. However, because of the scaled normalization that we did earlier in the process, this number becomes much more difficult to interpret.
+The R-squared was .95, which means that our model can help account for 95% of the variance in ticket pricing.
+
+![Model](https://github.com/asnyder613/NBA_Seating/blob/307c23b05eac2d82757f55b86a32e87998599288/ModelPerformance.png)
+
+Looking further into the errors of our model, they appear to be evenly distributed. At first, however, in the residuals plot on the right, you can clearly see some outliers scattered in the top right quadrant, meaning that our model fully doesn't account for all possible outliers. However, as we know, this is very difficult--and something that we would like to investigate further with more time.
+
+Looking at the normal distribution of our errors, we can see that while our model predicts the core data set very, very well, it fails to predict some of the tails leading to the skewness is the image below, which could be due to heterosodasticity or outliers that impact the model's performance, and is certainly something we're interested in investigating further as we continue to look at our model.
+
+![Model](https://github.com/asnyder613/NBA_Seating/blob/307c23b05eac2d82757f55b86a32e87998599288/Residuals.png)
+
+Then, we plotted the Shapley values on a small subset of the data frame (only about a hundred values), because of the the computer and memory intensive nature of the Shapely graph. So it's only directionally correct, but it does tell us a lot about how our model operates. We can see a lot of bimodal distributions and graphs like the section category section, level and section group, meaning that our model is highly consistent in its predictions. Essentially, the less purple you see here, the the better your model is, and is generally consistent in how it chooses to predict specific variables and observations.
+
+![Model](https://github.com/asnyder613/NBA_Seating/blob/307c23b05eac2d82757f55b86a32e87998599288/Shapely.png)
+
+## Next Steps
+With additional time and data, there is opportunity for further model improvement. 
+
+In addition to analyzing this model (or one developed with additional data), each franchise much aks the question: do we want to maximize sales volume or maximize revenue? Consumer elasticity information, as well as local demographic data could help to answer this question. 
+
+It is also worth noting that season tickets typically have a lower average ticket price than individually sold tickets. The data provided does not seem to indicate which seats are held by season ticket holders, but there could be some additional insights to be gained in further analyzing the seats held by season ticket holders (and ticket resale data). 
+
+With additional time it could also be beneficial to build a secondary model to value games based on team win percentages, schedule factors, etc. to predict individual game revenue, which could then be integrated with the seat quality / pricing model. 
+
+With additional time and data, it may also be beneficial to account for additional variables that could potentially influence ticket price, such as a game timing, holidays, and historical rivalries. 
+
